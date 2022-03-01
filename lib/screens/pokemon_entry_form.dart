@@ -109,7 +109,7 @@ class _NewPokemonEntryFormState extends State<NewPokemonEntryForm> {
                     addVerticalSpacing(getScreenHeight(context) * 0.09712),
                     Center(
                       child: Text(
-                        "This species form is a demo \n a POST endpoint would be required to add a new species to the pokemon list\n which is not available as all the endpoints are GET endpoints",
+                        "This species form is static \n a POST endpoint would be required to add a new species to the pokemon list\n which is not available as all the endpoints are GET endpoints",
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppColors.deepBlue,fontSize: 12,fontWeight: FontWeight.w500),
                       ),
