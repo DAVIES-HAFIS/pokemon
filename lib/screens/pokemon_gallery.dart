@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon_app/pokemon_biodata.dart';
-import 'package:pokemon_app/pokemon_entry_form.dart';
+import 'package:pokemon_app/screens/pokemon_biodata.dart';
+import 'package:pokemon_app/screens/pokemon_entry_form.dart';
 
-import 'bloc/nav_cubit.dart';
-import 'bloc/pokemon_bloc.dart';
-import 'bloc/pokemon_state.dart';
-import 'helper_function.dart';
+import '../bloc/nav_cubit.dart';
+import '../bloc/pokemon_bloc.dart';
+import '../bloc/pokemon_state.dart';
+import '../helper_function.dart';
 
 class PokemonGallery extends StatefulWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/pokemon_gallery.dart';
+import 'package:pokemon_app/screens/pokemon_gallery.dart';
 
-import 'helper_function.dart';
+import '../helper_function.dart';
 
 class NewPokemonEntryForm extends StatefulWidget {
 

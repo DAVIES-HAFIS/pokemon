@@ -5,7 +5,7 @@ import 'package:pokemon_app/bloc/nav_cubit.dart';
 import 'package:pokemon_app/bloc/pokemon_bloc.dart';
 import 'package:pokemon_app/bloc/pokemon_details_cubit.dart';
 import 'package:pokemon_app/bloc/pokemon_event.dart';
-import 'package:pokemon_app/pokemon_gallery.dart';
+import 'package:pokemon_app/screens/pokemon_gallery.dart';
 
 void main() {
   runApp(MyApp());

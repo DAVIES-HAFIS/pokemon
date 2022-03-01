@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/pokemon_details_cubit.dart';
-import 'helper_function.dart';
-import 'model/pokemon_detail.dart';
+import '../bloc/pokemon_details_cubit.dart';
+import '../helper_function.dart';
+import '../model/pokemon_detail.dart';
 
 class PokemonDetailsView extends StatelessWidget {
   @override
