@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokemon_app/pokemon_biodata.dart';
+import 'package:pokemon_app/pokemon_entry_form.dart';
 
 import 'bloc/nav_cubit.dart';
 import 'bloc/pokemon_bloc.dart';
@@ -97,7 +99,9 @@ class _PokemonGalleryState extends State<PokemonGallery> {
       ),
       floatingActionButton: FloatingActionButton(
         child: IconButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewPokemonEntryForm()));
+          },
           icon: Icon(Icons.add,color: Colors.white,),
         ),
       ),

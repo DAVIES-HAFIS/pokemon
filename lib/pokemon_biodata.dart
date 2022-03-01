@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,46 +15,58 @@ class PokemonDetailsView extends StatelessWidget {
         backgroundColor: AppColors.deepBlue ,
         title: Text('Pokemon Bio-Data',style:TextStyle(color: Colors.white),),
       ),
-      backgroundColor: Color(0xFFF2F2F2),
+      backgroundColor:AppColors.white,
       body: BlocBuilder<PokemonDetailsCubit, PokemonDetails>(
         builder: (context, details) {
           return details != null
               ? Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                      flex: 1,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Image.network(details.imageUrl),
-                            Text(details.name),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: details.types
-                                  .map((type) => _pokemonTypeView(type))
-                                  .toList(),
-                            ),
-                            Text(
-                                'ID: ${details.id}  -  Weight: ${details.weight}  -  Height: ${details.height}')
-                          ],
-                        ),
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text(
-                              details.description,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ))
+
+                  Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.deepBlue,
+                    ),
+                    child:  Image.network(details.imageUrl),
+                  ),
+                  addVerticalSpacing(15),
+                  Text(details.name,style: TextStyle(color: AppColors.deepGrey,fontSize: 15,fontWeight: FontWeight.w700),),
+                  addVerticalSpacing(15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: details.types
+                        .map((type) => _pokemonTypeView(type))
+                        .toList(),
+                  ),
+                  addVerticalSpacing(10),
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10),
+                      child: Text(
+                          'Species Ranking: ${details.id}   Weight: ${details.weight}   Height: ${details.height}',style: TextStyle(color: AppColors.deepBlue,fontSize: 15,fontWeight: FontWeight.w700),),
+                    ),
+                  ),
+                  addVerticalSpacing(20),
+                  Container(
+                    height: 150,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColors.deepBlue,
+                    ),
+                    child: Center(
+                      child: Text(
+                                  details.description,
+                                  textAlign: TextAlign.center,
+                        style: TextStyle(color: AppColors.lightGrey),
+                                ),
+                    ),
+                  ),
                 ],
               ))
               : Center(
@@ -128,14 +141,17 @@ class PokemonDetailsView extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.all(Radius.circular(8))),
+            color: color,
+            borderRadius: BorderRadius.circular(20.0),
+           border: Border.all(color: Colors.black45,width: 1.0),
+        ),
         child: Text(
           type.toUpperCase(),
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10),
         ),
       ),
     );
