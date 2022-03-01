@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc/nav_cubit.dart';
 import 'bloc/pokemon_bloc.dart';
 import 'bloc/pokemon_state.dart';
 import 'helper_function.dart';
@@ -55,21 +56,25 @@ class _PokemonGalleryState extends State<PokemonGallery> {
                       child: ListView.builder(
                           itemCount: state.pokemonListings.length,
                           itemBuilder: (BuildContext context,int index){
-                            return Card(
-                              elevation: 3.0,
-                              color: Colors.white,
-                              shadowColor: Colors.blueGrey,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
-                                child: Container(
-                                  height: 50,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Image.network(state.pokemonListings[index].imageUrl),
-                                      Text(state.pokemonListings[index].name)
-                                    ],
+                            return GestureDetector(
+                              onTap: () => BlocProvider.of<NavCubit>(context)
+                                  .showPokemonDetails(state.pokemonListings[index].id),
+                              child: Card(
+                                elevation: 3.0,
+                                color: Colors.white,
+                                shadowColor: Colors.blueGrey,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),
+                                  child: Container(
+                                    height: 50,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Image.network(state.pokemonListings[index].imageUrl),
+                                        Text(state.pokemonListings[index].name)
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

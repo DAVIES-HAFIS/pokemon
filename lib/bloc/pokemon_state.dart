@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pokemon_page_response.dart';
+import '../model/pokemon_page_response.dart';
 
 abstract class PokemonState {}
 
